@@ -1,0 +1,105 @@
+body {
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 10px;
+    color: rgb(0, 0, 0);
+    font-size: 45px;
+    font-weight: 600;
+}
+
+/* 컨텐츠 박스 중앙 정렬 */
+.content {
+    width: 800px; 
+    padding: 30px 30px 0px 30px; 
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    align-items: center;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+#score-container {
+    text-align: center;
+    width: 500px;
+    padding: 0 20px 20px 20px; 
+    border-radius: 10px;
+    color:#000000;
+}
+
+
+#score {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 100px;
+    margin-top: 0;
+    gap: 30px;
+}
+
+#score p {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    margin: 20px 0;
+    gap: 25px;
+}
+
+h2{
+    font-size: 22px;
+    margin: 0 auto;
+}
+
+#score-container chance{
+    margin: 0 auto;
+}
+
+#chance {
+    margin: 0 8px;
+}
+
+/* 버튼 스타일링 */
+#choice-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 80px;
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+#choice-buttons li {
+    margin: 10px;
+    padding: 0;
+}
+
+#choice-buttons button {
+    padding: 18px 50px;
+    border: none;
+    background-color: rgb(249, 210, 210);
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 25px;
+    font-weight: 600;
+}
+
+#choice-buttons button:hover {
+    background-color: #d2d2d2;
+}
+
+#result {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
