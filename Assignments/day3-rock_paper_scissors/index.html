@@ -10,31 +10,27 @@
     <h1>Rock paper scissors</h1>
 
     <div class="content">
-
         <div id="score-container">    
             <div id="score">
                 <p>플레이어 <span id="player-score">0</span></p>
                 <p>컴퓨터 <span id="computer-score">0</span></p>
             </div>
            
-            <h2>선택하기</h2> <p id="chance">남은 횟수： <span>0</span></p>
-
+            <h2>선택하기</h2> 
+            <p id="remaining-chance">남은 횟수: <span id="chance">10</span></p>
         </div>
 
         <div id="choice-buttons">
-              <!--가위, 바위, 보 버튼-->
-            <ul id="choice-buttons">
-                <li><button data-choice="scissors">가위</button></li>
-                <li><button data-choice="rock">바위</button></li>
-                <li><button data-choice="paper">보</button></li>
-            </ul>
+            <button data-choice="scissors">가위</button>
+            <button data-choice="rock">바위</button>
+            <button data-choice="paper">보</button>
         </div>
     </div>
 
-    <div id="result">"컴퓨터 승리"</div> <!--결과 출력할 div-->
+    <div id="result"></div> <!-- 결과 출력할 div -->
+        
+    <button id="restart-button" class="hidden">다시 시작</button>
     
-    
-
     <script src="script.js"></script>
 </body>
 </html>
