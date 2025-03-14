@@ -16,13 +16,13 @@ body {
     margin-left: 20px;
 }
 
-#choice {
+.choices {
     display: flex;
     text-align: center;
     margin-top: 40px;
 }
 
-#choice button {
+.choices button {
     padding: 10px 50px;
     border: none;
     background-color: #b3b3b3;
@@ -32,16 +32,16 @@ body {
     border-radius: 5px;
 }
 
-#choice button:hover {
+.choices button:hover {
     background-color: rgb(114, 114, 114);
 }
 
-#next-button {
+#next-btn {
     display: flex;
     justify-content: right;
 }
 
-#next-button button {
+#next-btn button {
     padding: 8px 20px;
     font-size: 13px;
     border: none;
@@ -52,7 +52,30 @@ body {
     border-radius: 5px;
 }
 
-#next-button button:hover {
+#next-btn button:hover {
     background-color: rgb(193, 117, 117);
 }
 
+#restart-btn {
+    display: flex;
+    justify-content: center;
+}
+
+#restart-btn button {
+    padding: 15px 25px;
+    font-size: 18px;
+    border: none;
+    background-color: #ffa73b;
+    color: white;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+#restart-button button:hover {
+    background-color: rgb(193, 117, 117);
+}
+
+.hidden {
+    display: none !important;
+}
