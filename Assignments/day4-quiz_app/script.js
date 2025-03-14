@@ -6,15 +6,17 @@
 //세번 틀리면 restart 뜨도록 하기
 
 const restartButton = document.getElementById("restart-button");
+
+
 function startQuiz() {
+    let incorrectCount = 0;
 
     //문제 5개
     for(let i = 0; i < 5; i++) {   
         let answer = getRandomQuestion();
-        let incorrectCount = 0;
         let selectedValue;
         
-        document.querySelectorAll("#choice button").forEach(button => {
+        document.querySelectorAll(".choices button").forEach(button => {
             button.addEventListener("click", function() {
             selectedValue = Number(this.textContent);
              });
@@ -50,31 +52,37 @@ function startQuiz() {
 function getRandomQuestion() {   
     let arr = ["+", "-", "x"]; 
 
-    let num1 = Math.floor(Math.random() * 10) + 1;     //1~10랜덤수
-    let num2 = Math.floor(Math.random() * 10) + 1;     //1~10랜덤수
+    let num1 = Math.floor(Math.random() * 10) + 1;     // 1~10 랜덤 수
+    let num2 = Math.floor(Math.random() * 10) + 1;     // 1~10 랜덤 수
 
-    let operator = arr[Math.floor(Math.random() * 3)];     //+,-,x 중 하나
+    let operator = arr[Math.floor(Math.random() * 3)]; // +, -, x 중 하나
 
     let answer;
-    if(operator === "+") {
+    if (operator === "+") {
         answer = num1 + num2;
-    } else if(operator === "-") {
+    } else if (operator === "-") {
         answer = num1 - num2;
     } else {
         answer = num1 * num2;
     }
 
-    let incorrect = answer - (Math.floor(Math.random() * 30));
-    let choiceArr = [answer, incorrect, "정답이 없습니다."];    //choice를 랜덤으로 버튼에 표시
+    let incorrect = answer - Math.floor(Math.random() * 10 + 1); // 틀린 답
+    if (incorrect === answer) incorrect -= 1; // 만약 틀린 답이 정답과 같다면 보정
 
-    //choiceArr에서 랜덤으로 choice를 받아서 세개의 버튼에 표시
-    document.getElementById("question").textContent = num1 + " " + operator  + " " + num2  + " ?";
+    let choiceArr = [answer, incorrect, "정답이 없습니다."]; // 선택지 배열
+    choiceArr.sort(() => Math.random() - 0.5); // 배열 섞기
 
-    document.getElementById("choice1").textContent = answer;    //id를 랜덤으로 선택
-    document.getElementById("choice2").textContent = num2;   //이건 나머지 버튼
-    document.getElementById("choice3").textContent = num1
+    // 문제 표시
+    document.getElementById("question").textContent = `${num1} ${operator} ${num2} ?`;
+
+    // 랜덤으로 섞인 선택지를 버튼에 배치
+    document.getElementById("choice1").textContent = choiceArr[0];
+    document.getElementById("choice2").textContent = choiceArr[1];
+    document.getElementById("choice3").textContent = choiceArr[2];
 
     return answer;
 }
+
+
 
 startQuiz();
