@@ -27,6 +27,8 @@ function getRandomChoice() {
 function determineWinner(playerChoice, computerChoice) {
     let result = "";
 
+    console.log("player: " + playerChoice, "computer: " + computerChoice);
+
     if (playerChoice === computerChoice) {
         result = "무승부!";
     } else if (
