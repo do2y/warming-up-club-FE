@@ -20,6 +20,10 @@ body {
     display: flex;
     text-align: center;
     margin-top: 40px;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: stretch;
 }
 
 .choices button {
@@ -29,51 +33,52 @@ body {
     color: white;
     cursor: pointer;
     margin: 10px;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 .choices button:hover {
     background-color: rgb(114, 114, 114);
 }
 
-#next-btn {
+.next-btn-container {
     display: flex;
     justify-content: right;
+    margin-top: 20px;
+    margin-right: 10px;
 }
 
-#next-btn button {
-    padding: 8px 20px;
-    font-size: 13px;
-    border: none;
-    background-color: #df9a9a;
-    color: white;
-    cursor: pointer;
-    margin: 10px;
-    border-radius: 5px;
-}
-
-#next-btn button:hover {
-    background-color: rgb(193, 117, 117);
-}
-
-#restart-btn {
+.next-btn {
     display: flex;
     justify-content: center;
-}
-
-#restart-btn button {
-    padding: 15px 25px;
-    font-size: 18px;
+    padding: 8px 50px;
+    font-size: 13px;
     border: none;
     background-color: #ffa73b;
     color: white;
     cursor: pointer;
     margin: 10px;
-    border-radius: 5px;
+    border-radius: 50px;
 }
 
-#restart-button button:hover {
-    background-color: rgb(193, 117, 117);
+.restart-btn {
+    display: flex;
+    justify-content: center;
+    padding: 8px 50px;
+    font-size: 13px;
+    border: none;
+    background-color: #3c3a37;
+    color: white;
+    cursor: pointer;
+    margin: 10px;
+    border-radius: 50px;
+}
+
+.next-btn:hover {
+    background-color: #ffa73b;
+}
+
+.restart-btn:hover {
+    background-color: #606060;
 }
 
 .hidden {
