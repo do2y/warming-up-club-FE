@@ -1,0 +1,67 @@
+
+body {
+  display: flex;
+  justify-content: center;     
+  min-height: 100vh;        
+  margin: 0;              
+}
+
+h1 {
+    font-size: 60px;
+    font-weight: 100;
+    margin-top: 80px;
+    margin-bottom: 30px;
+}   
+
+.input-container {
+    width: 700px;
+}
+
+.book-title, .book-author {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.book-title {
+    margin-bottom: 15px;
+}
+
+label {
+    margin-bottom: 10px;
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 8px;
+}
+
+#submit-btn {
+    padding: 5px;
+    font-size: 12px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.book-list {
+    margin-top: 70px;
+}
+
+.list-header {
+    display: flex;
+    font-size: 13px;
+    font-weight: 500;
+    color: #8f8f8f;
+}
+
+.list-title {
+    border-right: 1.5px solid #ccc;
+    padding-right: 10px;         
+    margin-right: 10px;          
+}
+
+.list-title, .list-author {
+    width: 280px;
+}
+
