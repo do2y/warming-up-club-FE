@@ -48,20 +48,28 @@ input {
     margin-top: 70px;
 }
 
-.list-header {
+.book-item {
     display: flex;
     font-size: 13px;
     font-weight: 500;
     color: #8f8f8f;
 }
 
-.list-title {
+
+.book-list span {
     border-right: 1.5px solid #ccc;
     padding-right: 10px;         
-    margin-right: 10px;          
-}
-
-.list-title, .list-author {
+    margin-right: 10px;   
     width: 280px;
 }
 
+.book-list span:last-child {
+    border-right: none;
+    margin-right: 0;  
+    padding-right: 0; 
+    width: 100px;
+}
+
+.hidden {
+    display: none;
+}
