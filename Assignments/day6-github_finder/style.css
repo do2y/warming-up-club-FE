@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 25px;
+    background-color: #f5f5dc;
+    padding: 15px 0px 20px 30px;
+    margin-top: 0;
+    color: #5D675B;
+    font-weight: 700;
+}
+
+.wrap-container {
+    margin: 35px 40px;
+    padding: 40px;
+    border-radius: 7px;
+    border: #dbdbdbcc solid 1px;
+}
+
+h2 {
+    color: #222;
+    font-size: 35px;
+    margin-bottom: 0;
+    margin-top: 0;
+
+}
+
+span {
+    font-size: 16px;
+    color: rgb(157, 157, 157);
+    position: relative;
+    top: -3px;
+}
+
+#search-form {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+label {
+    font-size: 14px;
+}
+
+input {
+    margin-top: 6px;
+    padding: 9px;
+    width: 45%;
+    margin-bottom: 20px;
+    font-size: 13px;
+    border: 1.3px solid #ccc;   
+}
+
+input::placeholder {
+    color: rgb(157, 157, 157);
+}
+
+input:focus {
+  border: 1.3px solid #ff6600;  
+  outline: none;  
+  background-color: #fffdf8;
+  color: #333;            
+}
+
+
+#result-container {
+    border-radius: 7px;
+    border: #dbdbdbcc solid 1px;
+    padding: 15px;
+    margin-top: 5px;
+    margin-bottom: 100px;
+}
+
+#profile {
+    background-color: rgb(51, 77, 77);
+    height: 100px;
+    width: auto;
+}
+
+
+#repos {
+    background-color: aquamarine;
+    height: 100px;
+    width: auto;
+}
