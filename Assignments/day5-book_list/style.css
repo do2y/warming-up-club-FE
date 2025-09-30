@@ -14,7 +14,7 @@ h1 {
 }   
 
 .input-container {
-    width: 700px;
+    width: 100%;
 }
 
 .book-title, .book-author {
@@ -53,23 +53,53 @@ input {
     font-size: 13px;
     font-weight: 500;
     color: #8f8f8f;
+    border-bottom: #8f8f8f solid 1px;
+    padding: 5px;
 }
 
+.book-item:first-child {
+    font-weight: 400;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    background-color: rgba(73, 148, 12, 0.564);
+    color: aliceblue;
+    border-bottom: none;
+}
 
 .book-list span {
-    border-right: 1.5px solid #ccc;
     padding-right: 10px;         
     margin-right: 10px;   
     width: 280px;
+}
+
+.book-list span:first-child {
+    width: 300px;
+    padding-left: 15px;
 }
 
 .book-list span:last-child {
     border-right: none;
     margin-right: 0;  
     padding-right: 0; 
-    width: 100px;
+    width: 50px;
 }
 
-.hidden {
-    display: none;
+.message {
+  font-size: 14px;
+  color: #1f1f1f;
+  font-weight: 600;
+  margin-top: 10px;
+  transition: opacity 0.5s ease;
+  background-color: rgba(91, 110, 76, 0.564);
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.delete-btn {
+  padding-left: 5px;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
