@@ -3,6 +3,21 @@ const authorInput = document.getElementById("author");
 const submitBtn = document.getElementById("submit-btn")
 const bookList = document.querySelector(".book-list");
 
+// 메시지 출력 함수
+function showMessage(text, duration = 1500) {
+    const message = document.createElement("div");
+    message.textContent = text;
+    message.classList.add("message");
+
+    const wrap = document.querySelector(".wrap-container");
+    const header = wrap.querySelector("h1");
+    wrap.insertBefore(message, header.nextSibling);
+
+    setTimeout(() => {
+        message.remove();
+    }, duration);
+}
+
 submitBtn.addEventListener("click", () => {
     const title = titleInput.value.trim();
     const author = authorInput.value.trim();
@@ -28,13 +43,8 @@ submitBtn.addEventListener("click", () => {
     const deleteSpan = document.createElement("span");
     deleteSpan.textContent = "x";
     deleteSpan.classList.add("delete-btn");
-    // 책 삭제 메시지 출력 부분
-    deleteSpan.addEventListener("click", () => {
-        deleteSpan.parentElement.remove();
-        showMessage(`${title} 도서가 삭제되었습니다.`, 3000);
-    });
-
-
+    
+    
     bookItem.appendChild(titleSpan);
     bookItem.appendChild(authorSpan);
     bookItem.appendChild(deleteSpan);
@@ -44,18 +54,11 @@ submitBtn.addEventListener("click", () => {
     showMessage(`${title} 도서가 추가되었습니다.`, 1500);
 });
 
-
-// 메시지 출력 함수
-function showMessage(text, duration = 1500) {
-    const message = document.createElement("div");
-    message.textContent = text;
-    message.classList.add("message");
-
-    const wrap = document.querySelector(".wrap-container");
-    const header = wrap.querySelector("h1");
-    wrap.insertBefore(message, header.nextSibling);
-
-    setTimeout(() => {
-        message.remove();
-    }, duration);
-}
+bookList.addEventListener("click", (e) => {
+    if (e.target.classList.contains("delete-btn")) {
+        const bookItem = e.target.parentElement;
+        const title = bookItem.querySelector("span").textContent;
+        bookItem.remove();
+        showMessage(`${title} 도서가 삭제되었습니다.`, 3000);
+    }
+});
