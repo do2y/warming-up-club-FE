@@ -74,15 +74,49 @@ input:focus {
     margin-bottom: 100px;
 }
 
+#error-message {
+    color: #2c2c2c8c;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    margin: 80px auto;
+}
+
+
 #profile {
-    background-color: rgb(51, 77, 77);
-    height: 100px;
+    height: auto;
     width: auto;
+}
+
+
+.user-card {
+    display: flex;
+    justify-content: center; 
+    align-items: center;     
+    gap: 60px;
+    padding: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+#user-id {
+    font-size: 22px;
+    margin-bottom: 15px;
+    background-color: #d1d1bd95;
+    border-radius: 30px;
+    text-align: center;
+    padding: 10px 50px;
+}
+
+#info {
+    padding-left: 10px;
+}
+.user-card p {
+    margin: 5px 0;
 }
 
 
 #repos {
     background-color: aquamarine;
-    height: 100px;
     width: auto;
 }
