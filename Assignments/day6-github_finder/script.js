@@ -40,8 +40,7 @@ usernameInput.addEventListener("input", async (e) => {
         `
 
             //레포 정보 불러오기
-            const responseRepos = await fetch(`https://api.github.com/users/${username}/repos`, 
-                { headers: { Authorization: "token ***REMOVED***" } });
+            const responseRepos = await fetch(`https://api.github.com/users/${username}/repos`);
 
             const reposData = await responseRepos.json(); 
             console.log(reposData);
