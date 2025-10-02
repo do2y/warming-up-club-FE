@@ -61,14 +61,13 @@ usernameInput.addEventListener("input", async (e) => {
                 repoCard.classList.add("repos-card");
                 repoCard.innerHTML = `
                     <h3>${item.name}</h3>
-                    <p style="font-weight:500; ${item.description ? '' : "color:#cdcdcd;"}">
+                    <p style="font-weight:500; margin-bottom:35px; ${item.description ? '' : "color:#cdcdcd;"}">
                         ${item.description || "No description"}
                     </p>
-                    <br><br>
                     <span class="repo-stat watchers">watchers: ${item.watchers_count}</span>
                     <span class="repo-stat stars">stars: ${item.stargazers_count}</span>
                     <span class="repo-stat forks">forks: ${item.forks_count}</span>
-                    <p>Language - ${item.language || ""}</p> 
+                    <p style="margin-top: 7px">Language - ${item.language || ""}</p> 
                 `;
                 reposList.appendChild(repoCard);
             }
