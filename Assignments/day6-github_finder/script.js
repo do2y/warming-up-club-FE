@@ -4,59 +4,81 @@ usernameInput.addEventListener("input", async (e) => {
     const username = e.target.value.trim();
 
     if (username.length == 0) {
-        //아무것도.....
         return;
     }
     try {
-        //Github api
-        //fetch함수 안에 api를 ....
         const response = await fetch(`https://api.github.com/users/${username}`);
 
-        if (!response.ok) {  //fetch api에서 반환된 응답(객체)에 있는 속성 - boolean값
+        if (!response.ok) {  
             document.getElementById("result-container").innerHTML = `<p id="error-message">User not found</p>`;
             document.getElementById("repos").innerHTML = "";
             return;
         }
 
-        //response.ok가 true면
         const data = await response.json();    
-        //응답을 읽어서 json을 js객체로 파싱 -> response.json()가 promise라서 await 붙여야함.
-        //body를 JSON 객체로 변환해서 data에 담는 과정
-        console.log(data);
 
         const profileDiv = document.getElementById("profile");
+        const joinDate = new Date(data.created_at).toLocaleDateString();
+
         profileDiv.innerHTML = `
             <div class="user-card">
-                <img src="${data.avatar_url}" alt="${data.login}" width="200" style="border-radius: 2px;"/>
+                <img src="${data.avatar_url}" alt="${data.login}" width="230" style="border-radius: 2px; margin-top:20px"/>
                 <div id="user-info">
                     <h2 id="user-id">${data.login}${data.name ? ` (${data.name})` : ""}</h2>
                     <div id="info">
-                        <p>Follwer: ${data.followers} | Following: ${data.following}</p>
-                        <p>bio: ${data.bio || ".."}</p>
-                        <p>company: ${data.company || ".."}</p>
+                        <p>bio: ${data.bio || " -"}</p>
+                        <p>company: ${data.company || " -"}</p>
+                        <p>location: ${data.location || " -"}</p>
+                        <p>Member Since: ${joinDate}</p>
                         <br>
-                        <p>Public Repos: ${data.public_repos}</p>
+                        <span class="user-stat follow">Follwers: ${data.followers} &nbsp;| &nbsp;Following: ${data.following}</span>
+                        <span class="user-stat gist">Public Gists: ${data.public_gists}</span>
+                        <span class="user-stat repos">Public Repos: ${data.public_repos}</span>
                     </div>
                 </div>
             </div>
         `
 
+            //레포 정보 불러오기
+            const responseRepos = await fetch(`https://api.github.com/users/${username}/repos`, 
+                { headers: { Authorization: "token ***REMOVED***" } });
+
+            const reposData = await responseRepos.json(); 
+            console.log(reposData);
+
+            const reposDiv = document.getElementById("repos");
+            if (!reposData || reposData.length === 0) {
+                reposDiv.innerHTML = `<p>No repositories found....</p>`;
+                return;
+            }
+           
+            reposDiv.innerHTML = `<h3 style="margin:0 10px;">Latest Repos</h3>`;
+
+            const reposList = document.createElement("div");
+            reposList.classList.add("repos-list"); 
+    
+            for (let item of reposData) {
+                const repoCard = document.createElement("div");    
+                repoCard.classList.add("repos-card");
+                repoCard.innerHTML = `
+                    <h3>${item.name}</h3>
+                    <p style="font-weight:500; ${item.description ? '' : "color:#cdcdcd;"}">
+                        ${item.description || "No description"}
+                    </p>
+                    <br><br>
+                    <span class="repo-stat watchers">watchers: ${item.watchers_count}</span>
+                    <span class="repo-stat stars">stars: ${item.stargazers_count}</span>
+                    <span class="repo-stat forks">forks: ${item.forks_count}</span>
+                    <p>Language - ${item.language || ""}</p> 
+                `;
+                reposList.appendChild(repoCard);
+            }
+
+            reposDiv.appendChild(reposList);
 
 
     }
     catch {
-
+        console.error("API 요청 실패:", err);
     }
 });
-
-
-async function getUser(username) {
-  const profileRes = await fetch(`https://api.github.com/users/${username}`);
-  const profile = await profileRes.json();
-
-  const repoRes = await fetch(`https://api.github.com/users/${username}/repos`);
-  const repos = await repoRes.json();
-
-  console.log(profile); // 프로필 정보
-  console.log(repos);   // 레포 정보
-}

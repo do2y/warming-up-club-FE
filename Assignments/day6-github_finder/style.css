@@ -14,7 +14,7 @@ h1 {
 
 .wrap-container {
     margin: 35px 40px;
-    padding: 40px;
+    padding: 30px 40px;
     border-radius: 7px;
     border: #dbdbdbcc solid 1px;
 }
@@ -65,7 +65,6 @@ input:focus {
   color: #333;            
 }
 
-
 #result-container {
     border-radius: 7px;
     border: #dbdbdbcc solid 1px;
@@ -82,21 +81,18 @@ input:focus {
     margin: 80px auto;
 }
 
-
 #profile {
     height: auto;
     width: auto;
 }
-
 
 .user-card {
     display: flex;
     justify-content: center; 
     align-items: center;     
     gap: 60px;
-    padding: 20px;
     font-size: 13px;
-    font-weight: 600;
+    font-weight: 500;
 }
 
 #user-id {
@@ -111,12 +107,68 @@ input:focus {
 #info {
     padding-left: 10px;
 }
+
 .user-card p {
     margin: 5px 0;
 }
 
+.user-stat {
+    width: auto;
+    height: auto;
+    font-size: 12px;
+    margin-right: 5px;
+    font-weight: 500;
+    color: #e3e3e3;
+    background-color: #6c6c6c;
+    padding: 4px 7px;
+    border-radius: 5px;
+}
 
 #repos {
-    background-color: aquamarine;
-    width: auto;
+    margin: 40px 50px;
 }
+
+.repos-list {
+    height: auto;
+    width: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; 
+}
+
+.repos-card  {
+    display: block;  
+    padding: 20px 20px 30px 30px;
+    font-size: 13px;
+    margin-top: 10px;
+    border-radius: 7px;
+    border: #dbdbdbcc solid 1px;
+}
+
+.repos-card p {
+    margin: 3px;
+    font-size:12px;
+}
+
+.repo-stat {
+    width: auto;
+    height: auto;
+    font-size: 13px;
+    font-weight: 500;
+    color: #ffffff;
+    padding: 4px 7px;
+    border-radius: 5px;
+}
+
+.watchers {
+    background-color: #4c6fa0;
+}
+
+.stars {
+    background-color: rgb(204, 204, 109);
+}
+
+.forks {
+    background-color: #adabab;
+}
+
