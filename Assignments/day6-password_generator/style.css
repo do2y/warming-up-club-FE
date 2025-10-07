@@ -28,12 +28,15 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    overflow-wrap: anywhere;
+    word-break: break-all;
 }
 
 #copy-btn {
     border: none;
     background: none;
     cursor: pointer;
+    margin-left: 6px;
 }
 
 hr {
