@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typing Test App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>타이핑 스피드 측정</h1>
+
+    <div class="stat_wrapper">
+        <div class="stat" id="error">ERRORS</div>   
+        <div class="stat" id="time">TIME</div>
+        <div class="stat" id="accuracy">ACCURACY</div> 
+        <div class="stat" id="wpm">WPM</div>
+        <div class="stat" id="cpm">CPM</div>
+    </div>
+    <hr>
+
+    <div id="game-screen" class="hidden">
+        <div id="sentence-area">The sun slowly rose over the quiet city, painting the sky with soft shades of pink.</div>
+        <textarea name="typing-area" id="typing" placeholder="타자연습을 시작하세요!..."></textarea>
+    </div>
+    
+    <div id="start-screen" class="hidden">
+        <p>아래의 버튼을 눌러 게임을 시작하세요!</p>
+        <button id="start-btn">START</button>
+    </div>
+
+    <div id="retry-screen" class="hidden">
+        <p>다시 시작하려면 아래의 버튼을 클릭하세요!</p>
+        <button id="retry-btn">RETRY</button>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
