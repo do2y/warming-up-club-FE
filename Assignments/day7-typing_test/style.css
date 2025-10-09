@@ -65,15 +65,18 @@ textarea:focus {
     letter-spacing: 1px;
 }
 
-p {
+#start-screen {
     margin-top: 80px;
+}
+
+.start-message {
     font-size: 19px;
     font-weight: 500;
     color: #2d2d2d;
     text-align: center;
 }
 
-button {
+#start-btn {
     padding: 20px 140px;
     border-radius: 10px;
     background-color: #515151;
@@ -84,11 +87,36 @@ button {
     cursor: pointer;
 }
 
+#retry-screen {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#retry-btn {
+    padding: 13px 80px;
+    border-radius: 10px;
+    background-color: #242424;
+    border: none;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.retry-message {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2d2d2d;
+    text-align: center;
+}
+
 button:hover {
     background-color: #9c9c9c;
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
