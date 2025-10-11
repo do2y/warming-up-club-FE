@@ -43,7 +43,6 @@ usernameInput.addEventListener("input", async (e) => {
             const responseRepos = await fetch(`https://api.github.com/users/${username}/repos`);
 
             const reposData = await responseRepos.json(); 
-            console.log(reposData);
 
             const reposDiv = document.getElementById("repos");
             if (!reposData || reposData.length === 0) {
