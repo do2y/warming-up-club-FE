@@ -30,6 +30,13 @@ h1 {
     border-radius: 10px;
 }
 
+.stat-p {
+    font-size: 30px;
+    font-weight: 600;    
+    margin: 0;
+    color: #ba2563;
+}
+
 hr {
     height: 2px;
     background-color: rgba(212, 212, 212, 0.456);
@@ -52,7 +59,7 @@ hr {
 textarea {
     width: 896px;
     height: 70px;
-    border: 2px solid #cfcfcf;
+    border: 2px solid #e792b5;
     border-radius: 10px;
     padding: 20px;
     font-weight: 400;
@@ -60,9 +67,14 @@ textarea {
 }
 
 textarea:focus {
-    border-color: #787878;
+    border-color: #e792b5;
     outline: none;
     letter-spacing: 1px;
+}
+
+textarea:disabled {
+    background-color: #1e1e1e63;
+    border: #1e1e1e63;
 }
 
 #start-screen {

@@ -14,27 +14,36 @@ const startBtn = document.getElementById("start-btn");
 const retryBtn = document.getElementById("retry-btn");
 const typingArea = document.getElementById("typing-area");
 
+let timerStarted;
+let inputArr = [];
+
+//start 버튼 화면
 showStart();
 
 startBtn.addEventListener("click", () => {
     console.log("게임 시작 ~");
+    timerStarted = false;
     startGame();
 })
 
 retryBtn.addEventListener("click", () => {
     console.log("게임 다시 시작 ~");
+    timerStarted = false;
+    typingArea.disabled = false;
+
     startGame();
 })
 
- 
-typingArea.addEventListener("input", (e) => {
-    //입력되는 글자가... 맞는지....
-    //,,,,,,,,,,,,,
-    console.log('입력값:', e.target.value);
 
-    //timer도 start
-    const endTime = new Date(Date.now() + 3 * 1000); 
-    timer(endTime, 1000);
+typingArea.addEventListener("input", (e) => {
+    if (!timerStarted) {
+        const endTime = new Date(Date.now() + 3 * 1000);
+        timer(endTime, 1000);
+        timerStarted = true;
+    }
+    //들어오는 입력값이 일치하는지..........
+    const inputArr = e.target.value.split("");
+    console.log(inputArr);
 });
 
 //start 화면
@@ -49,7 +58,7 @@ function showRetry() {
 }
 
 //게임 화면
-function startGame() {
+function startGame() {  
     retryScreen.classList.add("hidden");
     startScreen.classList.add("hidden");
     gameScreen.classList.remove("hidden");
@@ -75,8 +84,12 @@ function timer(endTime, timeout) {
     const end = endTime.getTime();
     const timeLeft = end - now;
 
+    const secondsLeft = Math.ceil(timeLeft/1000);
+    timeDiv.textContent = `${secondsLeft}s`;
+
     if (timeLeft <= 0) {
         showRetry();
+        typingArea.disabled = true;
         return;
     }
 
