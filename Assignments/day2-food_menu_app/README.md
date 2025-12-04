@@ -3,7 +3,9 @@
 > 사용자는 상단의 버튼을 클릭해 ALL / Breakfast / Lunch / Dinner / Shakes 중 원하는 카테고리를 선택하면 해당되는 음식만 화면에 표시됩니다.
 <br>
 
-![2025-12-04111504-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/eb9e814d-b664-4f5e-879f-112c7e3674a6)
+<p align="center">
+  <img src="https://github.com/user-attachments/assets/eb9e814d-b664-4f5e-879f-112c7e3674a6" alt="Food Menu Demo" />
+</p>
 
 
 
