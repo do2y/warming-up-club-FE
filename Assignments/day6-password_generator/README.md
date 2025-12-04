@@ -8,7 +8,7 @@
 ### 🎞 Preview
 <p align="center">
 
-![2025-12-04170849-ezgif com-video-to-gif-converter](https://github.com/user-attachments/assets/18476805-debc-4bb1-a8ad-23eb379d016b)
+![2025-12-04171746-ezgif com-video-to-gif-converter (5)](https://github.com/user-attachments/assets/bdd7ed17-baab-47cd-8999-4eccc84443a5)
 
 </p> 
 <br>
