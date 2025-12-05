@@ -71,7 +71,7 @@ body {
   align-items: center;
   font-size: 12px;
   border: none;
-  background-color: rgba(248, 124, 93, 0.637);
+  background-color: rgb(121, 218, 126);
   color: rgb(0, 0, 0);
   cursor: pointer;
   margin: 0;
@@ -84,7 +84,7 @@ body {
 }
 
 .restart-btn:hover {
-  background-color: rgba(248, 124, 93, 0.479);
+  background-color: rgba(121, 218, 126, 0.661);
   border-color: black;
 }
 
