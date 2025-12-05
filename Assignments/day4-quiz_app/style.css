@@ -1,86 +1,93 @@
 body {
-    background-color: bisque;
-    align-items: center;
+  background-color: bisque;
+  align-items: center;
 }
 
 #quiz-container {
-    width: 555px;
-    margin: 200px auto;
-    padding: 20px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  width: 580px;
+  margin: 200px auto;
+  padding: 20px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  min-height: 230px;
 }
 
 #question {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .choices {
-    display: flex;
-    text-align: center;
-    margin-top: 40px;
-    flex-direction: row;
-    justify-content: center;
-    flex-wrap: wrap;
-    align-items: stretch;
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin: 40px 20px 0 20px;
 }
 
 .choices button {
-    padding: 10px 50px;
-    border: none;
-    background-color: #b3b3b3;
-    color: white;
-    cursor: pointer;
-    margin: 10px;
-    border-radius: 10px;
+  padding: 10px 20px;
+  border: none;
+  background-color: #b3b3b3;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
+  width: 160px;
 }
 
 .choices button:hover {
-    background-color: rgb(114, 114, 114);
+  background-color: rgb(114, 114, 114);
 }
 
 .next-btn-container {
-    display: flex;
-    justify-content: right;
-    margin-top: 20px;
-    margin-right: 10px;
+  display: flex;
+  justify-content: right;
+  margin-top: 10px;
+  padding: 20px;
 }
 
 .next-btn {
-    display: flex;
-    justify-content: center;
-    padding: 8px 50px;
-    font-size: 13px;
-    border: none;
-    background-color: #ffa73b;
-    color: white;
-    cursor: pointer;
-    margin: 10px;
-    border-radius: 50px;
+  width: 60px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  border: none;
+  background-color: rgb(252, 168, 90);
+  color: white;
+  cursor: pointer;
+  margin: 0;
+  border-radius: 50%;
 }
 
 .restart-btn {
-    display: flex;
-    justify-content: center;
-    padding: 8px 50px;
-    font-size: 13px;
-    border: none;
-    background-color: #3c3a37;
-    color: white;
-    cursor: pointer;
-    margin: 10px;
-    border-radius: 50px;
+  width: 60px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  border: none;
+  background-color: rgba(248, 124, 93, 0.637);
+  color: rgb(0, 0, 0);
+  cursor: pointer;
+  margin: 0;
+  border-radius: 50%;
 }
 
 .next-btn:hover {
-    background-color: #ffa73b;
+  background-color: rgba(252, 168, 90, 0.62);
+  border-color: rgba(252, 168, 90, 0.62);
 }
 
 .restart-btn:hover {
-    background-color: #606060;
+  background-color: rgba(248, 124, 93, 0.479);
+  border-color: black;
 }
 
 .hidden {
-    display: none !important;
+  display: none !important;
 }
