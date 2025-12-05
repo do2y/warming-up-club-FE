@@ -10,7 +10,7 @@ body {
   background-color: rgb(255, 255, 255);
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  min-height: 230px;
+  min-height: 210px;
 }
 
 #question {
@@ -45,7 +45,7 @@ body {
   display: flex;
   justify-content: right;
   margin-top: 10px;
-  padding: 20px;
+  padding: 10px 20px;
 }
 
 .next-btn {
@@ -84,8 +84,7 @@ body {
 }
 
 .restart-btn:hover {
-  background-color: rgba(121, 218, 126, 0.661);
-  border-color: black;
+  background-color: rgba(121, 218, 126, 0.808);
 }
 
 .hidden {
