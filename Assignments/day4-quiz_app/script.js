@@ -12,7 +12,6 @@ function startQuiz() {
   loadNextQuiz();
 }
 
-// 문제 불러오기
 function loadNextQuiz() {
   if (incorrectCount >= 3 || quizIndex >= 5) {
     restartButton.classList.remove("hidden");
@@ -20,11 +19,9 @@ function loadNextQuiz() {
     return;
   }
 
-  // 새로운 문제 세팅
   answer = getRandomQuestion();
   quizIndex++;
 
-  // 버튼 색 초기화
   choiceButtons.forEach((btn) => {
     btn.style.backgroundColor = "";
     btn.disabled = false;
@@ -60,7 +57,6 @@ restartButton.addEventListener("click", () => {
   window.location.reload();
 });
 
-// 랜덤 문제 생성
 function getRandomQuestion() {
   let arr = ["+", "-", "x"];
   let num1 = Math.floor(Math.random() * 10) + 1;
