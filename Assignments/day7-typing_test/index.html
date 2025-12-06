@@ -1,40 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Typing Test App</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <h1>타이핑 스피드 측정</h1>
 
     <div class="stat_wrapper">
-        <div class="stat">ERRORS  <p class="stat-p" id="error"></p> </div>   
-        <div class="stat">TIME <p class="stat-p" id="time"></p> </div>
-        <div class="stat">ACCURACY <p class="stat-p" id="accuracy"></p></div> 
-        <div class="stat">WPM <p class="stat-p" id="wpm"></p></div>
-        <div class="stat">CPM  <p class="stat-p" id="cpm"></p></div>
+      <div class="stat">
+        ERRORS
+        <p class="stat-p" id="error">0</p>
+      </div>
+      <div class="stat">
+        TIME
+        <p class="stat-p" id="time">10s</p>
+      </div>
+      <div class="stat">
+        ACCURACY
+        <p class="stat-p" id="accuracy">0%</p>
+      </div>
+      <div class="stat">
+        WPM
+        <p class="stat-p" id="wpm">0</p>
+      </div>
+      <div class="stat">
+        CPM
+        <p class="stat-p" id="cpm">0</p>
+      </div>
     </div>
-    <hr>
+    <hr />
 
     <div id="game-screen" class="hidden">
-        <div id="sentence-area"></div>
-        <textarea name="typing-area" id="typing-area" placeholder="타자연습을 시작하세요!..."></textarea>
+      <div id="sentence-area"></div>
+      <textarea
+        id="typing-area"
+        placeholder="타자연습을 시작하세요!..."
+      ></textarea>
     </div>
-    
-    <div id="start-screen" class="hidden">
-        <p class="start-message">아래의 버튼을 눌러 게임을 시작하세요!</p>
-        <button id="start-btn">START</button>
+
+    <div id="start-screen">
+      <p class="start-message">아래의 버튼을 눌러 게임을 시작하세요!</p>
+      <button id="start-btn">START</button>
     </div>
 
     <div id="retry-screen" class="hidden">
-        <p class="retry-message">다시 시작하려면 아래의 버튼을 클릭하세요!</p>
-        <button id="retry-btn">RETRY</button>
+      <p class="retry-message">다시 시작하려면 아래의 버튼을 클릭하세요!</p>
+      <button id="retry-btn">RETRY</button>
     </div>
 
-
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

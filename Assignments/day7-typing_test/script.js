@@ -14,99 +14,125 @@ const startBtn = document.getElementById("start-btn");
 const retryBtn = document.getElementById("retry-btn");
 const typingArea = document.getElementById("typing-area");
 
-let timerStarted;
-let inputArr = [];
+let timerStarted = false;
+let currentSentence = "";
+let totalSeconds = 10;
 
-//start 버튼 화면
 showStart();
 
 startBtn.addEventListener("click", () => {
-    console.log("게임 시작 ~");
-    timerStarted = false;
-    startGame();
-})
-
-retryBtn.addEventListener("click", () => {
-    console.log("게임 다시 시작 ~");
-    timerStarted = false;
-    typingArea.disabled = false;
-
-    startGame();
-})
-
-
-typingArea.addEventListener("input", (e) => {
-    if (!timerStarted) {
-        const endTime = new Date(Date.now() + 3 * 1000);
-        timer(endTime, 1000);
-        timerStarted = true;
-    }
-    //들어오는 입력값이 일치하는지..........
-    const inputArr = e.target.value.split("");
-    console.log(inputArr);
+  startGame();
 });
 
-//start 화면
+retryBtn.addEventListener("click", () => {
+  startGame();
+});
+
+typingArea.addEventListener("input", (e) => {
+  if (!timerStarted) {
+    const endTime = new Date(Date.now() + totalSeconds * 1000);
+    timer(endTime, 1000);
+    timerStarted = true;
+  }
+
+  const typed = typingArea.value.split("");
+  const spans = sentenceArea.querySelectorAll("span");
+  let errors = 0;
+
+  spans.forEach((span, index) => {
+    const typedChar = typed[index];
+
+    if (typedChar == null) {
+      span.classList.remove("correct", "incorrect");
+    } else if (typedChar === span.textContent) {
+      span.classList.add("correct");
+      span.classList.remove("incorrect");
+    } else {
+      span.classList.add("incorrect");
+      span.classList.remove("correct");
+      errors++;
+    }
+  });
+
+  errorDiv.textContent = errors;
+});
+
 function showStart() {
-    startScreen.classList.remove("hidden");  
-    retryScreen.classList.add("hidden");  
+  startScreen.classList.remove("hidden");
+  retryScreen.classList.add("hidden");
+  gameScreen.classList.add("hidden");
 }
 
-//retry 화면
 function showRetry() {
-    retryScreen.classList.remove("hidden");  
+  retryScreen.classList.remove("hidden");
+  gameScreen.classList.add("hidden");
 }
 
-//게임 화면
-function startGame() {  
-    retryScreen.classList.add("hidden");
-    startScreen.classList.add("hidden");
-    gameScreen.classList.remove("hidden");
+function startGame() {
+  timerStarted = false;
+  typingArea.disabled = false;
+  typingArea.value = "";
+  errorDiv.textContent = 0;
+  accuracyDiv.textContent = "0%";
+  wpmDiv.textContent = 0;
+  cpmDiv.textContent = 0;
+  timeDiv.textContent = totalSeconds + "s";
 
-    newSentence();
-    typingArea.value = "";
+  startScreen.classList.add("hidden");
+  retryScreen.classList.add("hidden");
+  gameScreen.classList.remove("hidden");
+
+  newSentence();
 }
 
-
-
-//sentences.json에서 랜덤으로 문장을 가져오는 함수
 function newSentence() {
-    fetch("sentences.json")
-        .then(res => res.json())
-        .then(data => {
-            const randomSentence = data[Math.floor(Math.random() * data.length)];
-            document.getElementById("sentence-area").textContent = randomSentence.text;
+  fetch("sentences.json")
+    .then((res) => res.json())
+    .then((data) => {
+      currentSentence = data[Math.floor(Math.random() * data.length)].text;
+      renderSentence(currentSentence);
     });
 }
 
+function renderSentence(sentence) {
+  sentenceArea.innerHTML = "";
+  sentence.split("").forEach((char) => {
+    const span = document.createElement("span");
+    span.textContent = char;
+    sentenceArea.appendChild(span);
+  });
+}
+
 function timer(endTime, timeout) {
-    const now = Date.now();
-    const end = endTime.getTime();
-    const timeLeft = end - now;
+  const now = Date.now();
+  const timeLeft = endTime.getTime() - now;
 
-    const secondsLeft = Math.ceil(timeLeft/1000);
-    timeDiv.textContent = `${secondsLeft}s`;
+  const seconds = Math.ceil(timeLeft / 1000);
+  timeDiv.textContent = `${seconds}s`;
 
-    if (timeLeft <= 0) {
-        showRetry();
-        typingArea.disabled = true;
-        return;
-    }
+  if (timeLeft <= 0) {
+    endGame();
+    return;
+  }
 
-    setTimeout(() => {
-        timer(endTime, timeout);
-    }, timeout);
+  setTimeout(() => timer(endTime, timeout), timeout);
 }
 
-function calculateAccuracy() {
+function endGame() {
+  typingArea.disabled = true;
+  showRetry();
 
+  const totalTyped = typingArea.value.length;
+  const errors = parseInt(errorDiv.textContent);
+  const correct = Math.max(totalTyped - errors, 0);
+
+  const accuracy = totalTyped === 0 ? 0 : (correct / totalTyped) * 100;
+
+  accuracyDiv.textContent = accuracy.toFixed(1) + "%";
+
+  const cpm = Math.round(totalTyped * (60 / totalSeconds));
+  cpmDiv.textContent = cpm;
+
+  const wpm = Math.round((totalTyped / 5) * (60 / totalSeconds));
+  wpmDiv.textContent = wpm;
 }
-
-function calculateWPM() {
-    
-}
-
-function calculateCPM() {
-    
-}
-
