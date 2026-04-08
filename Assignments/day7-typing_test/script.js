@@ -14,6 +14,10 @@ const startBtn = document.getElementById("start-btn");
 const retryBtn = document.getElementById("retry-btn");
 const typingArea = document.getElementById("typing-area");
 
+let totalTypedCount = 0;
+let totalErrorCount = 0;
+
+let isSentenceComplete = false;
 let timerStarted = false;
 let currentSentence = "";
 let totalSeconds = 10;
@@ -37,7 +41,7 @@ typingArea.addEventListener("input", (e) => {
 
   const typed = typingArea.value.split("");
   const spans = sentenceArea.querySelectorAll("span");
-  let errors = 0;
+  let errors = totalErrorCount;
 
   spans.forEach((span, index) => {
     const typedChar = typed[index];
@@ -55,6 +59,21 @@ typingArea.addEventListener("input", (e) => {
   });
 
   errorDiv.textContent = errors;
+
+  if (!isSentenceComplete && typingArea.value.length === spans.length) {
+    isSentenceComplete = true;
+
+    const typedLength = typingArea.value.length;
+    const errors = parseInt(errorDiv.textContent);
+
+    totalTypedCount += typedLength;
+    totalErrorCount += errors;
+
+    typingArea.value = "";
+    newSentence();
+
+    isSentenceComplete = false;
+  }
 });
 
 function showStart() {
@@ -69,6 +88,8 @@ function showRetry() {
 }
 
 function startGame() {
+  totalTypedCount = 0;
+  totalErrorCount = 0;
   timerStarted = false;
   typingArea.disabled = false;
   typingArea.value = "";
@@ -122,8 +143,8 @@ function endGame() {
   typingArea.disabled = true;
   showRetry();
 
-  const totalTyped = typingArea.value.length;
-  const errors = parseInt(errorDiv.textContent);
+  const totalTyped = totalTypedCount;
+  const errors = totalErrorCount;
   const correct = Math.max(totalTyped - errors, 0);
 
   const accuracy = totalTyped === 0 ? 0 : (correct / totalTyped) * 100;
